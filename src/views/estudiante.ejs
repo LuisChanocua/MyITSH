@@ -1,0 +1,94 @@
+<!-- importando header -->
+<%- include('partials/__header') %>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-7">
+                <table class="tabla tabla-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Apellido P</th>
+                            <th>Apellido M</th>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <% if (data) { %>
+                        <% for (var i=0; i < data.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= (i + 1) %>
+                                </td>
+                                <td>
+                                    <%= data[i].apaterno %>
+                                </td>
+                                <td>
+                                    <%= data[i].amaterno %>
+                                </td>
+                                <td>
+                                    <%= data[i].nombre %>
+                                </td>
+                                <td>
+                                    <%= data[i].edad %>
+                                </td>
+                                <td>
+                                    <!-- <a href="/deleteE" class="btn btn-danger">E</a> -->
+                                    <!-- <form action="/deleteE" method="post">
+                                        <input type="hidden" name="id" value="<%= data[i].id %>">
+                                        <button class="btn btn-danger" type="submit">E</button>
+                                    </form> -->
+                                    <a href="deleteE/<%=data[i].id %>" class="btn btn-danger">E</a>
+                                    <a href="showE" class="btn btn-info">M</a>
+                                    
+                                    <!-- <input type="hidden" name="id" value="<%= data[i].id %>">
+                                    <button class="btn btn-danger">E</button> -->
+                                    <!-- <button class="btn btn-info">A</button> -->
+                                </td>
+                            </tr>
+                            <% } %>
+                                <% } %>
+                </table>
+            </div>
+            <div class="col-md-5">
+                <h4>Datos de registro</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="saveE" method="post">
+                            <div class="form-group">
+                                <input style="text-transform: uppercase;" oninput="mayus(this)" type="text" name="apaterno"
+                                    placeholder="Ap. Paterno" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input style="text-transform: uppercase;" oninput="mayus(this)" type="text" name="amaterno"
+                                    placeholder="Ap. Materno" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input style="text-transform: uppercase;" oninput="mayus(this)" type="text" name="nombre" placeholder="Nombre"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="edad" placeholder="Edad" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mayus(input) {
+            input.value = input.value.toUpperCase();
+            //<!-- console.log(input.value) -->
+
+        }
+
+    </script>
+    <!-- importando footer -->
+    <%- include('partials/__footer') %>
+        </body>
+
+        </html>

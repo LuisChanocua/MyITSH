@@ -4,7 +4,8 @@
   "description": "Proyecto Web para el ITSH",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js"
   },
   "author": "luis_chanocua",
   "license": "ISC",
